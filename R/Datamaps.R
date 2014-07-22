@@ -50,7 +50,9 @@ ichoropleth <- function(x, data, pal = "Blues", ncuts = 5, animate = NULL, play 
       ordered_result = TRUE
     )
   )
-  fillColors = brewer.pal(ncuts, pal)
+  getPalette = colorRampPalette(brewer.pal(9, pal)) # "Blues"
+  # fillColors = brewer.pal(ncuts, pal)
+  fillColors = getPalette(ncuts)
   d$set(
     scope = map, 
     fills = as.list(setNames(fillColors, levels(data$fillKey))), 
